@@ -5,21 +5,68 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/normalize.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+   <script src="/script.js" type="text/javascript" async defer></script>
+  <script src="/moment.js" type="text/javascript"></script>
+ <!--  <script src="/js/unsplash-source.js"></script> -->
 </head>
-<header>
-
-</header>
+<header></header>
 
 <body>
+   <!-- <div id="container">
+    <img src="<%# image.urls.regular %>" alt="background image">
+</div> -->
+
+<a href="/signup">Sign up</a>
+<a href="/login">Login In</a>
+
+
 <h1>search for the right car</h1>
+
+
 <form action="/show" method="GET" accept-charset="utf-8">
-  <input type='radio' name='carModel' value='honda'>
-  <input type='radio' name='carModel' value='acura'>
-  <input type='radio' name='carModel' value='Aston Martin'>
-  <!-- <input type="text" name="models" placeholder="search car model"> -->
-  <input type="submit" value="cars">
+  <ul>
+      <input type="hidden" name="carModel"  value="honda"> Honda
+      <input type="text" name="carMake" placeholder="Enter Make">
+      <li>Make types</li>
+      <li>Civic</li>
+      <li>Accord</li>
+      <li>CRV</li>
+      <li>Fit</li>
+      <li>pilot</li>
+    </ul>
+
+<button type="submit">cars</button>
 </form>
 
+<form action="/show" method="GET" accept-charset="utf-8">
+      <ul>
+        <input type="hidden" name="carModel"  value="acura"> Acura
+        <input type="text" name="carMake" placeholder="Enter Make">
+        <li>Make types</li>
+        <li>ILX</li>
+        <li>TLX</li>
+        <li>RLX</li>
+        <P>SUV MODELS</P>
+        <li>RDX</li>
+        <li>MDX</li>
+        <li>NSX</li>
+      </ul>
+
+<button type="submit">cars</button>
+</form>
+
+<form action="/show" method="GET" accept-charset="utf-8">
+      <ul>
+        <input type="hidden" name="carModel"  value="Aston Martin"> Aston Martin
+        <input type="text" name="carMake" placeholder="Enter Make">
+        <li>Make types</li>
+        <li>RAPIDES</li>
+        <li>VANQUISH</li>
+    </ul>
+<button type="submit">cars</button>
+</form>
 </body>
 
 <footer>

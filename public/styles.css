@@ -1,0 +1,30 @@
+.container{
+  border: 1px solid black;
+  height: 250px;
+  width: 500px;
+
+}
+
+
+/*img {
+  width: 100%;
+}
+*/
+
+/*#container {
+  background-color: #222;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}*/
+
+.container2{
+  border: 1px solid black;
+  float: right;
+  height: 650px;
+  width: 500px;
+
+
+}

@@ -6,22 +6,35 @@
   <title></title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<header>
+<header>  </header>
 
-</header>
-
-<body>
 <h1>search results</h1>
 
-<% results.models.forEach((x) => { %>
-  <!-- <p><%= x.year %></p> -->
-  <p><%= x.name %></p>
-  <!-- <p><%= x.niceName %></p> -->
+
+<body>
+
+<% results.styles.forEach((x) => { %>
+  <ul class="container">
+      <li>Year : 2015</li>
+      <li>name : <%= x.name%></li>
+      <li>Model :<%= x.submodel.modelName %></li>
+      <li>Type  : <%= x.submodel.body %></li>
+  </ul>
+  <form class="save" action="/favorites" method="POST" accept-charset="utf-8">
+  <input type="hidden" name="taco[Year]" value="<%= 2015 %>">
+  <input type="hidden" name="taco[name]" value="<%= x.name %>">
+  <input type="hidden" name="taco[Model]" value="<%= x.submodel.modelName %>">
+  <input type="submit" name="name" value="Save">
+  </form>
 <% }) %>
 
+<div class="container2">
+    <h3>Results</h3>
+     <% for(let i = 0; i <favorites.length ; i++){ %>
+     <p><%= favorites[i].year %><p>
+  <% }; %>
+</div>
+
 </body>
-
-<footer>
-
-</footer>
+<footer></footer>
 </html>
