@@ -4,7 +4,20 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
-  <link rel="stylesheet" href="/users/css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!--   <link rel="stylesheet" href="/users/css/styles.css"> -->
+
+  <style>
+
+  .border{
+    border:1px solid black;
+    margin:2px;
+    width: 480px;
+    margin-left:300px;
+  }
+
+  </style>
+
 </head>
 <header >
 <div id='main_page_header'>
@@ -15,23 +28,27 @@
 <h1>search results</h1>
 <body>
 <a href="/">HOME</a>
+<div class="container">
 <% if(results.styles) { %>
   <% results.styles.forEach((x) => { %>
-    <ul class="container">
-        <li>Year : 2015</li>
-        <li>name : <%= x.name%></li>
+  <div class="border">
+  <ul>
+        <li>Name  :<%= x.name%></li>
+        <li>Year  : 2015</li>
+        <li>Type  :<%= x.submodel.body %></li>
         <li>Model :<%= x.submodel.modelName %></li>
-        <li>Type  : <%= x.submodel.body %></li>
-    </ul>
+   </ul>
+
     <form class="save" action="/favorites" method="POST" accept-charset="utf-8">
     <input type="hidden" name="taco[Year]" value="<%= 2015 %>">
     <input type="hidden" name="taco[name]" value="<%= x.name %>">
     <input type="hidden" name="taco[Model]" value="<%= x.submodel.modelName %>">
     <input type="submit" name="name" value="Save">
     </form>
+</div>
   <% }) %>
 <% } %>
-
+  </div>
 <div class="container2">
     <h3>Results</h3>
      <% for(let i = 0; i <favorites.length ; i++){ %>

@@ -1,8 +1,9 @@
 const fetch = require('node-fetch');
 const CARS_URL = 'https://api.edmunds.com/api/vehicle/v2/'
 const MEDIA_CAR = 'https://media.ed.edmunds-media.com'
-const DB_CONNECTION = 'mongodb://localhost:27017/car_models'
+const DB_CONNECTION = process.env.MONGODB_URI || 'mongodb://localhost:27017/car_models '
 // const CAR_PHOTO = 'https://api.edmunds.com/api/media/v2/photoset?'
+
 const API_KEY = process.env.API_KEY;
 
 //grabbing objects from databass
