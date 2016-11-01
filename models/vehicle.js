@@ -56,7 +56,7 @@ console.log('insertObj after session', insertObj);
 //button to get cars
 function getFavorites(req, res, next) {
   console.log('Get FAVOIRUTES!!!!');
-   const insertObj = {};
+
   MongoClient.connect(DB_CONNECTION, (err, db) => {
     if (err) return next(err);
   db.collection('favorites')
@@ -78,23 +78,18 @@ function getFavorites(req, res, next) {
 
 //deleting from favortite function
 function deleteFavorite(req, res, next) {
-  console.log('deleteFavorite funct ************************************************')
-  MongoClient.connect(DB_CONNECTION, (err, db) => {
-    if (err) return next(err);
-  db.collection('favorites')
-      .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, doc) => {
-        if (removeErr) return next(removeErr);
-
-        // return the data
-        res.favorites = data;
-
-        db.close();
-        return next();
-      });
+  getDB().then((db) => {
+    dbcollection('favorites')
+    .findAndRemove({_id: ObjectID(req.params.id) },(removeErr,result)=>{
+      if(removeErr) return next(removeErr);
+      res.delete = result;
+      db.close();
+      next();
+    });
     return false;
   });
-  return false;
-}
+   return false;
+ }
 
 module.exports = {
   searchByName,

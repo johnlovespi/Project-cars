@@ -6,7 +6,8 @@
 }
 
 body {
-  background-
+background-image: url(https://images.unsplash.com/photo-1442188950719-e8a67aea613a?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=7d928c21eac59064e66e645e569e13d8);
+background-size: cover;
 }
 /*header #main_page_header {
   height: 40px;
@@ -15,19 +16,9 @@ body {
   border: 1px solid black;
 }*/
 
-/*img {
-  width: 100%;
-}
-*/
 
-/*#container {
-  background-color: #222;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: -1;
-}*/
+
+
 
 .top{
 /*  float: right;*/
@@ -45,7 +36,8 @@ body {
 
 }
 .box{
-  padding:55px;
+  padding-top:15px;
+  margin:10px;
 }
 .container2{
   border: 1px solid black;
@@ -55,15 +47,31 @@ body {
 }
 .line{
   /*border: 1px solid black;*/
+  color:white;
+  margin-left: 25px;
+  padding:10px;
   width: 350px;
   display: inline-block;
 }
+header{
+/*  background-color: black;*/
+/*  border-radius: 5px;*/
+/*  padding: 5px;*/
+  padding-top:50px;
+
+}
+header a{
+  color:#A52A2A;
+ text-decoration: none;
+ font-size: 20px;
+ padding:10px;
+}
 
 footer{
-  background-color: #CEECF5;
+  background-color: black;
   border-radius: 5px;
-  padding: 5px;
-  padding-top:50px;
+  /*padding: 5px;*/
+  padding-top:40px;
 
  /* margin-top: 2%;*/
 }
@@ -71,10 +79,53 @@ footer{
 /*login paga css*/
 
 
-.blackbar{
+/*.blackbar{
   background-color: black;
-  height:50px;
-    width:1200px;
+  height:20px;
+  width: 1500px;
+  position: fixed;
+}*/
+#hr1{
+  padding-top: 50px;
+}
+h1{
+
+  padding-left: 55px;
+  color:white;
+}
+.login{
+  color: white;
+  position: relative;
+  padding-top: 100px;
+  padding-left: 10px;
 
 }
+
+input{
+
+  padding:10px;
+  height: 40px;
+  width: 140px;
+  border-radius: 4px;
+}
+#footer{
+height: 100px;
+width: 100%;
+position: absolute;
+bottom: 0;
+}
+.icons{
+  list-style: none;
+  text-align: center;
+}
+#footer{
+  background-color: ;
+  text-align:center;
+  text-decoration: none;
+
+}
+#fot{
+  color:white;
+}
+
 

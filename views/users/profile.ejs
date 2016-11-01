@@ -4,14 +4,28 @@
     <meta charset="utf-8">
     <title>Profile</title>
   </head>
-  <body>
-    Example
+  <style>
+  body{
+    background-image: url(https://images.unsplash.com/photo-1474390771991-ca2fa832b730?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=b5905bc2a4e7b5524bf4525a9bc0499e);
+  background-size: cover;
+  }
+    h1{
+      color:white;
+    }
+
+
+  </style>
+<!--   <body style="background-image:url(https://images.unsplash.com/photo-1474390771991-ca2fa832b730?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=b5905bc2a4e7b5524bf4525a9bc0499e)">
+ -->
+
+
     <h1>Welcome! <%= user.username %></h1>
     <a href="/">Car Search</a>
     <form action="/auth?_method=DELETE" method="post">
       <input type="submit" value="Logout">
     </form>
 
+  </body>
    <!-- <div id="container">
     <img src="<%# image.urls.regular %>" alt="background image">
 </div> -->
