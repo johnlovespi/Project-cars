@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 const CARS_URL = 'https://api.edmunds.com/api/vehicle/v2/'
 const MEDIA_CAR = 'https://media.ed.edmunds-media.com'
+const DB_CONNECTION = 'mongodb://localhost:27017/car_models'
 // const CAR_PHOTO = 'https://api.edmunds.com/api/media/v2/photoset?'
 const API_KEY = process.env.API_KEY;
 
@@ -27,7 +28,6 @@ function searchByName (req,res,next) {
 })
 }
 
-
 //save function cars
 function saveFavorite(req, res, next) {
   console.log('here');
@@ -35,11 +35,14 @@ function saveFavorite(req, res, next) {
   for(key in req.body) {
     insertObj[key] = req.body[key];
   }
-insertObj.favorites = req.session;
+  console.log('insertObj: ',insertObj);
+insertObj.taco.userId = req.session.userId;
+console.log('insertObj after session', insertObj);
     getDB().then((db) => {
       db.collection('favorites')
-      .insert(insertObj.favorites, (insertErr, result) => {
+      .insert(insertObj.taco, (insertErr, result) => {
          if (insertErr) return next(insertErr);
+         console.log('Insert Object: ', result);
       res.favorites = result;
       db.close();
       next();
@@ -52,15 +55,17 @@ insertObj.favorites = req.session;
 
 //button to get cars
 function getFavorites(req, res, next) {
-  MongoClient.connect(dbConnection, (err, db) => {
+  console.log('Get FAVOIRUTES!!!!');
+   const insertObj = {};
+  MongoClient.connect(DB_CONNECTION, (err, db) => {
     if (err) return next(err);
   db.collection('favorites')
-      .find({})
+      .find({userId: {$eq: req.session.userId}})
       .toArray((arrayError, data) => {
         if (arrayError) return next(arrayError);
-
         // return the data
         res.favorites = data;
+        console.log('FAVORITES HERE: ', data);
         db.close();
         return next();
       });
@@ -73,15 +78,16 @@ function getFavorites(req, res, next) {
 
 //deleting from favortite function
 function deleteFavorite(req, res, next) {
-  MongoClient.connect(dbConnection, (err, db) => {
+  console.log('deleteFavorite funct ************************************************')
+  MongoClient.connect(DB_CONNECTION, (err, db) => {
     if (err) return next(err);
-
-    db.collection('favorites')
+  db.collection('favorites')
       .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, doc) => {
         if (removeErr) return next(removeErr);
 
         // return the data
-        res.removed = doc;
+        res.favorites = data;
+
         db.close();
         return next();
       });
@@ -89,22 +95,6 @@ function deleteFavorite(req, res, next) {
   });
   return false;
 }
-
-
-// function filterByimage (req, res, next) {
-// fetch(`${MEDIA_CAR}/${req.query.carModel}&/${req.query.carModel}?api_key=${API_KEY}`)
-//  .then(r => r.json())
-//   .then((car_photo) => {
-//    console.log(car_photo);
-//     res.car_photo = car_photo;
-//     next();
-// })
-//  .catch((err) => {
-//     console.log(err);
-//     res.err = err;
-//     next();
-// })
-// }
 
 module.exports = {
   searchByName,

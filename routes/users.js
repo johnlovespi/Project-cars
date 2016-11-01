@@ -1,7 +1,7 @@
 /* eslint no-multi-spaces: ["error", { exceptions: { "VariableDeclarator": true } }] */
 
 const express      = require('express');
-const { createUser }    = require('../models/user.js');
+const { createUser }    = require('../models/loginUsers.js');
 const { authenticate }   = require('../lib/auth');
 
 // const usersRouter  = express.Router();

@@ -17,6 +17,7 @@ router.post('/', logIn, (req, res) => {
   res.redirect('/users/profile');
 });
 
+
 // Logout by assigning null to the userId in the session
 router.delete('/', (req, res) => {
   req.session.userId = null;

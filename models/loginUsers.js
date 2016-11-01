@@ -20,7 +20,6 @@ function createUser(req, res, next) {
     db.collection('users')
       .insert(userObject, (insertErr, dbUser) => {
         if (insertErr) return next(insertErr);
-
         res.user = dbUser;
         db.close();
         return next();

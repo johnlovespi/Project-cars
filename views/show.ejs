@@ -4,34 +4,41 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/users/css/styles.css">
 </head>
-<header>  </header>
+<header >
+<div id='main_page_header'>
+
+</div>
+</header>
 
 <h1>search results</h1>
-
-
 <body>
-
-<% results.styles.forEach((x) => { %>
-  <ul class="container">
-      <li>Year : 2015</li>
-      <li>name : <%= x.name%></li>
-      <li>Model :<%= x.submodel.modelName %></li>
-      <li>Type  : <%= x.submodel.body %></li>
-  </ul>
-  <form class="save" action="/favorites" method="POST" accept-charset="utf-8">
-  <input type="hidden" name="taco[Year]" value="<%= 2015 %>">
-  <input type="hidden" name="taco[name]" value="<%= x.name %>">
-  <input type="hidden" name="taco[Model]" value="<%= x.submodel.modelName %>">
-  <input type="submit" name="name" value="Save">
-  </form>
-<% }) %>
+<a href="/">HOME</a>
+<% if(results.styles) { %>
+  <% results.styles.forEach((x) => { %>
+    <ul class="container">
+        <li>Year : 2015</li>
+        <li>name : <%= x.name%></li>
+        <li>Model :<%= x.submodel.modelName %></li>
+        <li>Type  : <%= x.submodel.body %></li>
+    </ul>
+    <form class="save" action="/favorites" method="POST" accept-charset="utf-8">
+    <input type="hidden" name="taco[Year]" value="<%= 2015 %>">
+    <input type="hidden" name="taco[name]" value="<%= x.name %>">
+    <input type="hidden" name="taco[Model]" value="<%= x.submodel.modelName %>">
+    <input type="submit" name="name" value="Save">
+    </form>
+  <% }) %>
+<% } %>
 
 <div class="container2">
     <h3>Results</h3>
      <% for(let i = 0; i <favorites.length ; i++){ %>
-     <p><%= favorites[i].year %><p>
+     <p><%= favorites[i].Year %><p>
+     <form class="delete-favorite" action="/favorites/<%= favorites[i]._id %>?_method=DELETE" method="post">
+        <input type="submit" value="Delete">
+    </form>
   <% }; %>
 </div>
 

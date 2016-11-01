@@ -9,24 +9,24 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
    <script src="/script.js" type="text/javascript" async defer></script>
   <script src="/moment.js" type="text/javascript"></script>
- <!--  <script src="/js/unsplash-source.js"></script> -->
+
 </head>
 <header></header>
 
 <body>
-   <!-- <div id="container">
-    <img src="<%# image.urls.regular %>" alt="background image">
-</div> -->
 
-<a href="/signup">Sign up</a>
-<a href="/login">Login In</a>
+<div class="top">
+  <a href="/signup" >Sign up</a>
+  <a href="/login">Login In</a>
 
 
-<h1>search for the right car</h1>
+</div>
 
+ <h1 id="top2">search for the right car</h1>
+<div class="box">
 
-<form action="/show" method="GET" accept-charset="utf-8">
-  <ul>
+<form action="/show" method="GET" accept-charset="utf-8" class="line">
+  <ul >
       <input type="hidden" name="carModel"  value="honda"> Honda
       <input type="text" name="carMake" placeholder="Enter Make">
       <li>Make types</li>
@@ -39,9 +39,8 @@
 
 <button type="submit">cars</button>
 </form>
-
-<form action="/show" method="GET" accept-charset="utf-8">
-      <ul>
+<form action="/show" method="GET" accept-charset="utf-8" class="line">
+      <ul >
         <input type="hidden" name="carModel"  value="acura"> Acura
         <input type="text" name="carMake" placeholder="Enter Make">
         <li>Make types</li>
@@ -56,9 +55,8 @@
 
 <button type="submit">cars</button>
 </form>
-
-<form action="/show" method="GET" accept-charset="utf-8">
-      <ul>
+<form action="/show" method="GET" accept-charset="utf-8" class="line" >
+      <ul >
         <input type="hidden" name="carModel"  value="Aston Martin"> Aston Martin
         <input type="text" name="carMake" placeholder="Enter Make">
         <li>Make types</li>
@@ -67,9 +65,9 @@
     </ul>
 <button type="submit">cars</button>
 </form>
+</div>
 </body>
-
 <footer>
-
+h
 </footer>
 </html>
